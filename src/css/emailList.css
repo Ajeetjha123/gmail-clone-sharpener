@@ -1,0 +1,141 @@
+.emailList {
+  display: flex;
+  flex-direction: column;
+}
+.emailList__setting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid whitesmoke;
+}
+.emailList__setting svg {
+  font-size: 18px;
+}
+.emailList__settingRight {
+  display: flex;
+  align-items: center;
+}
+.emailList__settingRight p {
+  font-size: 10px;
+}
+.emailtype {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid whitesmoke;
+}
+.emailtype > .emailtype__option {
+  display: flex;
+  align-items: center;
+  min-width: 230px;
+  padding: 0px 10px;
+  cursor: pointer;
+  border-bottom: 3px solid #fff;
+}
+.emailtype > .emailtype__option svg {
+  font-size: 20px;
+  color: gray;
+  margin: 10px;
+}
+.emailtype > .emailtype__option p {
+  font-size: 15px;
+}
+.emailtype > .emailtype__option:hover {
+  background-color: whitesmoke;
+}
+.emailtype__option--active {
+  border-bottom: 3px solid #d93025 !important;
+}
+.emailtype__option--active p,
+.emailtype__option--active svg {
+  color: #d93025 !important;
+  font-size: bold;
+}
+.emailbody {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid whitesmoke;
+  height: 40px;
+  padding: 0px 10px;
+}
+.emailbody:hover {
+  box-shadow: 2px 2px 4px whitesmoke;
+  cursor: pointer;
+}
+.emailbody__left {
+  display: flex;
+  align-items: center;
+  min-width: 230px;
+  flex: 20%;
+}
+.emailbody__left svg {
+  font-size: 18px;
+  color: gray;
+  margin-right: 10px;
+}
+.emailbody__left h4 {
+  font-size: 14px;
+}
+.emailbody__middle {
+  display: flex;
+  align-items: center;
+  flex: 90%;
+}
+.emailbody__middle .emailbody__middle_msg {
+  display: flex;
+  width: 90%;
+}
+.emailbody__middle p {
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0px 20px;
+  max-width: 700px;
+}
+.emailbody__right {
+  display: flex;
+  align-items: center;
+  flex: 10%;
+  justify-content: flex-end;
+}
+.emailbody__right p {
+  font-size: 12px;
+}
+.compose__footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 10px;
+}
+.compose__footerLeft button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 0;
+  border-radius: 6px;
+  outline: 0;
+  background-color: #297be6;
+  color: #fff;
+  font-size: 15px;
+  padding: 4px 10px;
+  letter-spacing: 1px;
+}
+.compose__footerLeft button svg {
+  border-left: 1px solid #00000052;
+  margin-left: 15px;
+  padding: 6px 2px;
+}
+.compose__footerRight svg {
+  font-size: 20px;
+  border-radius: 3px;
+  margin-left: 10px;
+  color: gray;
+  padding: 3px;
+  transition: 0.2 linear 0s;
+}
+.compose__footerRight svg:hover {
+  background-color: #eee;
+  color: #000;
+  cursor: pointer;
+}
