@@ -3,8 +3,15 @@ import EmailListSetting from "./EmailListSetting";
 import EmailType from "./EmailType";
 import EmailBody from "./EmailBody";
 import useFirestoreCollection from "./useFireCollection";
+import { useState } from "react";
 const EmailList = () => {
-  const email = useFirestoreCollection("emails");
+  const [, setUnreadCount] = useState(0);
+
+  const handleDataUpdate = (newData) => {
+    const newUnreadCount = newData.filter((item) => !item.data.isRead).length;
+    setUnreadCount(newUnreadCount);
+  };
+  const email = useFirestoreCollection("emails", handleDataUpdate);
   return (
     <div className="emailList">
       <EmailListSetting />
