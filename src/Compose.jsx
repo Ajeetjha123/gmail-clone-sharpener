@@ -36,6 +36,7 @@ const Compose = () => {
         message,
         timestamp: serverTimestamp(),
       });
+
       setTo("");
       setSubject("");
       setMessage("");

@@ -26,6 +26,7 @@ const EmailBody = ({ name, subject, message, time }) => {
     );
     navigate("/mail");
   };
+  console.log(name);
   return (
     <div className="emailbody" onClick={setMail}>
       <div className="emailbody__left">

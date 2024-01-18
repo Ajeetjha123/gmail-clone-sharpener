@@ -10,20 +10,36 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import LabelImportantIcon from "@mui/icons-material/LabelImportant";
 import PrintIcon from "@mui/icons-material/Print";
 import LaunchIcon from "@mui/icons-material/Launch";
+import DeleteSharpIcon from "@mui/icons-material/DeleteSharp";
 import StarIcon from "@mui/icons-material/Star";
 import ReplyIcon from "@mui/icons-material/Reply";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectedMail } from "./features/mailSlice";
+import { db } from "./firebase";
+import { deleteDoc, doc } from "firebase/firestore";
 const EmailDetail = () => {
   const navigate = useNavigate();
   const mail = useSelector(selectedMail);
+  const handelDelete = async (mail) => {
+    if (!mail || !mail.name) {
+      console.error("Invalid mail object or mail id.", mail.id);
+      return;
+    }
+    const mailDocref = doc(db, "emails", mail.id);
+    try {
+      await deleteDoc(mailDocref);
+      navigate("/");
+    } catch (err) {
+      console.error("error", err);
+    }
+  };
   return (
     <div className="emaildetails">
       <div className="emailList__setting">
         <div className="emailList__settingLeft">
-          <IconButton>
-            <ArrowBackIcon onClick={() => navigate("/")} />
+          <IconButton onClick={() => navigate("/")}>
+            <ArrowBackIcon />
           </IconButton>
           <IconButton>
             <CheckBoxOutlineBlankIcon />
@@ -36,6 +52,9 @@ const EmailDetail = () => {
           </IconButton>
           <IconButton>
             <MoreVertIcon />
+          </IconButton>
+          <IconButton onClick={() => handelDelete(mail)}>
+            <DeleteSharpIcon />
           </IconButton>
         </div>
         <div className="emailList__settingRight">

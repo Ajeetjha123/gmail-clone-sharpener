@@ -5,7 +5,7 @@ const mailSlice = createSlice({
     sendMessageIsOpen: false,
     selectedMessage: null,
     isRead: false,
-    inboxNumber: 0,
+    inboxNumber: 7,
   },
   reducers: {
     openSendMessage: (state) => {
@@ -21,7 +21,7 @@ const mailSlice = createSlice({
       state.isRead = true;
     },
     incrementInboxNumber: (state) => {
-      state.inboxNumber = state.inboxNumber + 1;
+      state.inboxNumber += 1;
     },
   },
 });

@@ -16,7 +16,6 @@ const EmailList = () => {
         }))
       );
     });
-
     return () => unsubscribe();
   }, []);
   return (
