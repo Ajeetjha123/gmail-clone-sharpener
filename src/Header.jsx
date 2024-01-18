@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./css/header.css";
 import ReorderIcon from "@mui/icons-material/Reorder";
 import { Avatar, IconButton } from "@mui/material";
@@ -7,7 +7,11 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AppsIcon from "@mui/icons-material/Apps";
+import AuthContext from "./store/auth-context";
+import { useNavigate } from "react-router-dom";
 const Header = () => {
+  const authCtx = useContext(AuthContext);
+  const navigate = useNavigate();
   return (
     <div className="header">
       <div className="header__left">
@@ -38,7 +42,12 @@ const Header = () => {
         <IconButton>
           <SettingsIcon />
         </IconButton>
-        <IconButton>
+        <IconButton
+          onClick={() => {
+            authCtx.logout();
+            navigate("/");
+          }}
+        >
           <AppsIcon />
         </IconButton>
         <Avatar src="ajeet-icon.jfif" />

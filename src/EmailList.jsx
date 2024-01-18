@@ -18,6 +18,7 @@ const EmailList = () => {
     });
     return () => unsubscribe();
   }, []);
+
   return (
     <div className="emailList">
       <EmailListSetting />

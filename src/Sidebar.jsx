@@ -19,6 +19,7 @@ import { openSendMessage, selectInboxNumber } from "./features/mailSlice";
 const Sidebar = () => {
   const inboxNumber = useSelector(selectInboxNumber);
   const dispatch = useDispatch();
+  // const habdeEmailMessage = () => {};
   return (
     <div className="sidebar">
       <Button

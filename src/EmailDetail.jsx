@@ -23,13 +23,13 @@ const EmailDetail = () => {
   const mail = useSelector(selectedMail);
   const handelDelete = async (mail) => {
     if (!mail || !mail.name) {
-      console.error("Invalid mail object or mail id.", mail.id);
+      console.error("Invalid mail object or mail id.", mail.name);
       return;
     }
-    const mailDocref = doc(db, "emails", mail.id);
+    const mailDocref = doc(db, "emails", mail.name);
     try {
       await deleteDoc(mailDocref);
-      navigate("/");
+      navigate("/mail");
     } catch (err) {
       console.error("error", err);
     }
@@ -38,7 +38,7 @@ const EmailDetail = () => {
     <div className="emaildetails">
       <div className="emailList__setting">
         <div className="emailList__settingLeft">
-          <IconButton onClick={() => navigate("/")}>
+          <IconButton onClick={() => navigate("/mail")}>
             <ArrowBackIcon />
           </IconButton>
           <IconButton>
