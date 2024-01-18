@@ -14,9 +14,10 @@ import FindInPageIcon from "@mui/icons-material/FindInPage";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 import VideocamIcon from "@mui/icons-material/Videocam";
-import { useDispatch } from "react-redux";
-import { openSendMessage } from "./features/mailSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { openSendMessage, selectInboxNumber } from "./features/mailSlice";
 const Sidebar = () => {
+  const inboxNumber = useSelector(selectInboxNumber);
   const dispatch = useDispatch();
   return (
     <div className="sidebar">
@@ -30,7 +31,7 @@ const Sidebar = () => {
       <SidebarOptions
         Icon={MailIcon}
         title="Inbox"
-        number="234"
+        number={inboxNumber}
         isactive={true}
       />
       <SidebarOptions Icon={StarOutlineIcon} title="Starred" number="234" />

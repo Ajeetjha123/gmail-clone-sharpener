@@ -13,7 +13,7 @@ import CreateIcon from "@mui/icons-material/Create";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useDispatch } from "react-redux";
-import { closeSendMessage } from "./features/mailSlice";
+import { closeSendMessage, incrementInboxNumber } from "./features/mailSlice";
 import { useState } from "react";
 import FormatColorText from "@mui/icons-material/FormatColorText";
 import { db, serverTimestamp } from "./firebase";
@@ -81,7 +81,10 @@ const Compose = () => {
           </div>
         </div>
         <div className="compose__footer">
-          <div className="compose__footerLeft">
+          <div
+            className="compose__footerLeft"
+            onClick={() => dispatch(incrementInboxNumber())}
+          >
             <button>
               Send
               <ArrowDropDown />
